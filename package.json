@@ -1,0 +1,28 @@
+{
+  "name": "todo-list-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=development node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bharat-7/todo-list-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/bharat-7/todo-list-test.git",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "joi": "^13.1.0",
+    "moment": "^2.29.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.2.5",
+    "swagger-ui-express": "^4.1.4"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "PORT": 3000,
+  "databaseSettings": {
+    "host"        : "localhost",
+    "user"        : "root",
+    "password"    : "root",
+    "database"    : "todo-list"
+  }
+}

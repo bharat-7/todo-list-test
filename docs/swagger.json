@@ -1,0 +1,216 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "To-do list backend code",
+    "version": "1.0.5",
+    "title": "Swagger To Do",
+    "termsOfService": "",
+    "contact": {
+      "email": "bharatbagga7@gmail.com"
+    }
+  },
+  "tags": [],
+  "schemes": [
+    "http"
+  ],
+  "host": "localhost:3000",
+  "paths": {
+    "/task/create": {
+      "post": {
+        "summary": "create a task",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "description": "create task",
+            "required": true,
+            "schema": {
+              "description": "Task object",
+              "properties":{
+                "task_description": {
+                  "type": "string",
+                  "required": true,
+                  "description": "task description/subject"
+                },
+                "parent_id": {
+                  "type": "number",
+                  "description": "task_id of parent"
+                },
+              },
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    },
+    "/task/fetch": {
+      "get": {
+        "summary": "fetch",
+        "tags": [
+          "default"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "task_id",
+            "in": "query",
+            "description": "task_id",
+            "type": "number"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "search",
+            "type": "string"
+          },
+          {
+            "name": "is_completed",
+            "in": "query",
+            "description": "is_completed",
+            "type": "number"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "type": "number"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "skip",
+            "type": "number"
+          },
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        },
+      },
+
+    },
+    "/task/update": {
+      "put": {
+        "summary": "update",
+        "tags": [
+          "default"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "description": "update task",
+            "required": true,
+            "schema": {
+              "description": "Task object",
+              "properties":{
+                "task_id": {
+                  "type": "number",
+                  "required": true,
+                  "description": "task ID"
+                },
+                "task_description": {
+                  "type": "string",
+                  "description": "task ID"
+                },
+                "is_completed": {
+                  "type": "number",
+                  "description": "is_completed"
+                },
+              },
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    },
+    "/task/remove": {
+      "delete": {
+        "summary": "delete",
+        "tags": [
+          "default"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "description": "create task",
+            "required": true,
+            "schema": {
+              "description": "Task object",
+              "properties":{
+                "task_id": {
+                  "type": "number",
+                  "description": "task ID"
+                },
+                "is_completed": {
+                  "type": "number",
+                  "description": "is_completed"
+                },
+              },
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ApiResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
